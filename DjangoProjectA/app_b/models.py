@@ -28,6 +28,11 @@ class Grade(models.Model):
         # 默认显示类的name字段
         return self.name
 
+    @classmethod
+    def create(cls, _name):
+        obj = cls(name=_name)
+        return obj
+
 
 class Class(models.Model):
     id = models.AutoField(primary_key=True)

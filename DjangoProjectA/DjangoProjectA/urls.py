@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app_a import views
+from app_b.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('first_view/', views.first_view),
+    path('grade_add/', grade_add),
 ]
