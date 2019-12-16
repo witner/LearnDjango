@@ -1,0 +1,43 @@
+[{
+	"model": "app_b.Class",
+	"pk": 1,
+	"fields": {
+		"name": "一年一班",
+		"grade_id": 1
+	}
+}, {
+	"model": "app_b.Class",
+	"pk": 2,
+	"fields": {
+		"name": "一年二班",
+		"grade_id": 1
+	}
+}, {
+	"model": "app_b.Class",
+	"pk": 3,
+	"fields": {
+		"name": "二年一班",
+		"grade_id": 2
+	}
+}, {
+	"model": "app_b.Class",
+	"pk": 4,
+	"fields": {
+		"name": "二年二班",
+		"grade_id": 2
+	}
+}, {
+	"model": "app_b.Class",
+	"pk": 5,
+	"fields": {
+		"name": "三年一班",
+		"grade_id": 3
+	}
+}, {
+	"model": "app_b.Class",
+	"pk": 6,
+	"fields": {
+		"name": "三年二班",
+		"grade_id": 3
+	}
+}]

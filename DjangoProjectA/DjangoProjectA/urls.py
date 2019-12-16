@@ -21,5 +21,7 @@ from app_b.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('first_view/', views.first_view),
-    path('grade_add/', grade_add),
+    path('grade_add1/', grade_add1),
+    path('grade_add2/', grade_add2),
+    path('grade_add3/', grade_add3),
 ]

@@ -30,8 +30,11 @@ class Grade(models.Model):
 
     @classmethod
     def create(cls, _name):
-        obj = cls(name=_name)
-        return obj
+        if _name is 'admin':
+            obj = cls(name=_name)
+            return obj
+        else:
+            print('不合法')
 
 
 class Class(models.Model):
