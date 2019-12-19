@@ -3,14 +3,16 @@
 	"pk": 1,
 	"fields": {
 		"name": "一年一班",
-		"grade_id": 1
+		"grade_id": 1,
+		"teacher_id": [1, 2]
 	}
 }, {
 	"model": "app_b.Class",
 	"pk": 2,
 	"fields": {
 		"name": "一年二班",
-		"grade_id": 1
+		"grade_id": 1,
+		"teacher_id": [1, 3]
 	}
 }, {
 	"model": "app_b.Class",

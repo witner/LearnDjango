@@ -2,24 +2,9 @@ from django.db import models
 
 
 # Create your models here.
-
-
-class Teacher(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=16, verbose_name="教师名称")
-    class_id = models.ManyToManyField(to='Class', db_column="class_id", db_table="t_teach2cls")
-
-    class Meta:
-        db_table = 't_teacher'  # 定义表名为t_teacher
-
-    def __str__(self):
-        # 默认显示类的name字段
-        return self.name
-
-
 class Grade(models.Model):
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=16, verbose_name="年级名称")
+    name = models.CharField(max_length=8, verbose_name="年级名称", unique=True)
 
     class Meta:
         db_table = 't_grade'
@@ -37,10 +22,24 @@ class Grade(models.Model):
             print('不合法')
 
 
+class Teacher(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=10, verbose_name="教师名称")
+    # class_id = models.ManyToManyField(to='Class', db_column="class_id", db_table="t_teach2cls")
+
+    class Meta:
+        db_table = 't_teacher'  # 定义表名为t_teacher
+
+    def __str__(self):
+        # 默认显示类的name字段
+        return self.name
+
+
 class Class(models.Model):
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=16, verbose_name="编辑名称")
+    name = models.CharField(max_length=16, verbose_name="编辑名称", unique=True)
     grade_id = models.ForeignKey(to='Grade', to_field='id', on_delete=models.CASCADE, db_column="grade_id")
+    teacher_id = models.ManyToManyField(to='Teacher', db_column="teacher_id", db_table="t_teach2cls")
 
     class Meta:
         db_table = 't_class'
@@ -72,7 +71,7 @@ class Student(models.Model):
 
 class Course(models.Model):
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=16, verbose_name="课程名称")
+    name = models.CharField(max_length=16, verbose_name="课程名称", unique=True)
     teacher_id = models.ForeignKey(to='Teacher', to_field='id', on_delete=models.CASCADE, db_column="teacher_id")
 
     class Meta:

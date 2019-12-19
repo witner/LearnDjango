@@ -1,0 +1,49 @@
+[{
+	"model": "app_b.Student",
+	"pk": 1,
+	"fields": {
+		"name": "乔丹",
+		"gender": "女",
+		"class_id": 1
+	}
+}, {
+	"model": "app_b.Student",
+	"pk": 2,
+	"fields": {
+		"name": "艾弗森",
+		"gender": "女",
+		"class_id": 1
+	}
+}, {
+	"model": "app_b.Student",
+	"pk": 3,
+	"fields": {
+		"name": "科比",
+		"gender": "男",
+		"class_id": 2
+	}
+}, {
+	"model": "app_b.Student",
+	"pk": 4,
+	"fields": {
+		"name": "啊三",
+		"gender": "女",
+		"class_id": 3
+	}
+}, {
+	"model": "app_b.Student",
+	"pk": 5,
+	"fields": {
+		"name": "啊四",
+		"gender": "男",
+		"class_id": 3
+	}
+}, {
+	"model": "app_b.Student",
+	"pk": 6,
+	"fields": {
+		"name": "啊五",
+		"gender": "女",
+		"class_id": 3
+	}
+}]

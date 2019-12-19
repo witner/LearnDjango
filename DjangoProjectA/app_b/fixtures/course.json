@@ -1,0 +1,22 @@
+[{
+	"model": "app_b.Course",
+	"pk": 1,
+	"fields": {
+		"name": "生物",
+        "teacher_id": 1
+	}
+}, {
+	"model": "app_b.Course",
+	"pk": 2,
+	"fields": {
+		"name": "体育",
+        "teacher_id": 1
+	}
+}, {
+	"model": "app_b.Course",
+	"pk": 3,
+	"fields": {
+		"name": "物理",
+        "teacher_id": 2
+	}
+}]

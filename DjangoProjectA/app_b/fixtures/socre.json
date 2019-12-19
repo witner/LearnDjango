@@ -1,0 +1,49 @@
+[{
+	"model": "app_b.Score",
+	"pk": 1,
+	"fields": {
+		"student_id": 1,
+		"course_id": 1,
+		"score": 60
+	}
+}, {
+	"model": "app_b.Score",
+	"pk": 2,
+	"fields": {
+		"student_id": 1,
+		"course_id": 2,
+		"score": 59
+	}
+}, {
+	"model": "app_b.Score",
+	"pk": 3,
+	"fields": {
+		"student_id": 1,
+		"course_id": 3,
+		"score": 59
+	}
+}, {
+	"model": "app_b.Score",
+	"pk": 4,
+	"fields": {
+		"student_id": 2,
+		"course_id": 1,
+		"score": 77
+	}
+}, {
+	"model": "app_b.Score",
+	"pk": 5,
+	"fields": {
+		"student_id": 2,
+		"course_id": 2,
+		"score": 99
+	}
+}, {
+	"model": "app_b.Score",
+	"pk": 6,
+	"fields": {
+		"student_id": 2,
+		"course_id": 3,
+		"score": 80
+	}
+}]

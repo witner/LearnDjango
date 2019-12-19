@@ -1,0 +1,19 @@
+[{
+	"model": "app_b.Teacher",
+	"pk": 1,
+	"fields": {
+		"name": "张三"
+	}
+}, {
+	"model": "app_b.Teacher",
+	"pk": 2,
+	"fields": {
+		"name": "李四"
+	}
+}, {
+	"model": "app_b.Teacher",
+	"pk": 3,
+	"fields": {
+		"name": "王五"
+	}
+}]

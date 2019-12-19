@@ -1,0 +1,8 @@
+[{
+	"model": "app_b.Class.teacher_id",
+	"pk": 1,
+	"fields": {
+		"class_id": 1,
+        "teacher_id": 1
+	}
+}]
