@@ -3,6 +3,14 @@ from app_b.models import *
 # Create your views here.
 
 
+def select(request):
+    grade_queryset = Grade.objects.all()
+    print(grade_queryset)
+    return HttpResponse('grade_add1')
+
+
+
+
 def grade_add1(request):
     # 年级添加-使用类实例对象的save方法进行添加表记录
     grade_obj1 = Grade(name="一年级")
