@@ -25,7 +25,6 @@ class Grade(models.Model):
 class Teacher(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=10, verbose_name="教师名称")
-    # class_id = models.ManyToManyField(to='Class', db_column="class_id", db_table="t_teach2cls")
 
     class Meta:
         db_table = 't_teacher'  # 定义表名为t_teacher
@@ -33,6 +32,19 @@ class Teacher(models.Model):
     def __str__(self):
         # 默认显示类的name字段
         return self.name
+
+
+class TeacherDetail(models.Model):
+    id = models.AutoField(primary_key=True)
+    telephone = models.CharField(verbose_name='手机号', max_length=11)
+    teacher_id = models.OneToOneField(to='Teacher', to_field='id', db_column='teacher_id', on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 't_teacher_detail'  # 定义表名为t_teacher
+
+    def __str__(self):
+        # 默认显示类的name字段
+        return self.id
 
 
 class Class(models.Model):

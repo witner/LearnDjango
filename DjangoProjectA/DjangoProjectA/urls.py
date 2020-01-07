@@ -24,4 +24,6 @@ urlpatterns = [
     path('grade_add1/', grade_add1),
     path('grade_add2/', grade_add2),
     path('grade_add3/', grade_add3),
+    path('select/', select),
+    path('select2/', select2)
 ]
