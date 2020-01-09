@@ -82,44 +82,97 @@ def select(request):
     grade_queryset_091 = Grade.objects.filter(name__regex=r'^.*年级.*')
     print("grade_queryset_091:", grade_queryset_091)
 
+    # 聚合查询
+    # eg:
+    from django.db.models import Avg, Max, Min, Count
+    age_avg = TeacherDetail.objects.aggregate(Avg('age'))
+    age_max = TeacherDetail.objects.aggregate(Max('age'))
+    age_min = TeacherDetail.objects.aggregate(Min('age'))
+    age_count = TeacherDetail.objects.aggregate(Count('age'))
+    print(age_avg, age_max, age_min, age_count)
+    print(type(age_count))
     return HttpResponse('select')
 
 
 def select2(request):
-    # 一对一的联表查询
-    # 基于对象的联表查询
-    # 正向查询-查询手机号为13000000001的老师名字
-    teacher_detail_obj = TeacherDetail.objects.filter(telephone="13000000001").first()
-    teacher_name = teacher_detail_obj.teacher_id.name
-    print(teacher_name)
-    # 反向查询-查询老师名为张三的手机号
-    teacher_obj = Teacher.objects.filter(name="张三").first()
-    telephone = teacher_obj.teacherdetail.telephone
-    print(telephone)
-    # 基于下划线的跨表查询
-    # 正向查询-查询手机号为13000000001的老师名字
-    qs = TeacherDetail.objects.filter(telephone="13000000001").values_list("teacher_id__name").first()
-    print(qs)
-    # 反向查询-查询老师名为张三的手机号
-    qs_001 = Teacher.objects.filter(name="张三").values_list("teacherdetail__telephone").first()
-    print(qs_001)
-
-
-
-
-
-    # # 查询课程为物理课的授课老师姓名
-    # course_obj = Course.objects.get(id=1)
-    # print(course_obj.teacher_id.name)
-    #
-    # # 查询老师叫王五的授课是哪些
-    # # 反向查询用对应表名+_set.all()
+    # # 一对一的联表查询
+    # # 基于对象的联表查询
+    # # 正向查询-查询手机号为13000000001的老师名字
+    # teacher_detail_obj = TeacherDetail.objects.filter(telephone="13000000001").first()
+    # teacher_name = teacher_detail_obj.teacher_id.name
+    # print(teacher_name)
+    # # 反向查询-查询老师名为张三的手机号
     # teacher_obj = Teacher.objects.filter(name="张三").first()
-    # print(teacher_obj)
+    # telephone = teacher_obj.teacherdetail.telephone
+    # print(telephone)
+    # # 基于下划线的跨表查询
+    # # 正向查询-查询手机号为13000000001的老师名字
+    # qs_001 = TeacherDetail.objects.filter(telephone="13000000001").values_list("teacher_id__name").first()
+    # print(qs_001)
+    # teacher_name = qs_001[0]
+    # print(teacher_name)
+    # # 反向查询-查询老师名为张三的手机号
+    # qs_002 = Teacher.objects.filter(name="张三").values_list("teacherdetail__telephone").first()
+    # print(qs_002)
+    # telephone = qs_002[0]
+    # print(telephone)
+
+
+    # # 一对多的联表查询
+    # # 基于对象的联表查询
+    # # 正向查询-查询课程为生物的执教老师名称
+    # course_obj = Course.objects.filter(name="生物").first()
+    # teacher_name = course_obj.teacher_id.name
+    # print(teacher_name)
+    # # 反向查询-查询张三老师所交的课
+    # teacher_obj = Teacher.objects.filter(name="张三").first()
     # course_qs = teacher_obj.course_set.all()
     # print(course_qs)
+    #
+    # # 基于下划线的跨表查询
+    # # 正向查询-查询课程为生物的执教老师名称
+    # teacher_qs = Course.objects.filter(name="生物").values("teacher_id__name")
+    # print(teacher_qs)
+    # # 反向查询-查询张三老师所交的课
+    # course_qs = Teacher.objects.filter(name="张三").values("course__name")
+    # print(course_qs)
 
+    # 多对多的联表查询
+    # 基于对象的联表查询
+    # 正向查询-查询一年级的执教老师
+    class_obj = Class.objects.filter(name="一年一班").first()
+    teacher_qs = class_obj.teacher_id.all()
+    print(teacher_qs)
+    # 反向查询-查询张三老师的所教的班级
+    teacher_obj = Teacher.objects.filter(name="张三").first()
+    class_qs = teacher_obj.class_set.all()
+    print(class_qs)
 
+    # 基于下划线的跨表查询
+    # 正向查询-查询一年级的执教老师
+    teacher_qs = Class.objects.filter(name="一年一班").values("teacher_id__name")
+    print(teacher_qs)
+    # 反向查询-查询张三老师的所教的班级
+    course_qs = Teacher.objects.filter(name="张三").values("class__name")
+    print(course_qs)
+
+    # 基于对象的联表查询
+    # 正向查询-查询一年级的执教老师
+    class_obj = Class.objects.filter(name="一年一班").first()
+    teacher_qs = class_obj.teacher_id.all()
+    print(teacher_qs)
+    # 反向查询-查询张三老师的所教的班级
+    teacher_obj = Teacher.objects.filter(name="张三").first()
+    class_qs = teacher_obj.class_set.all()
+    print(class_qs)
+
+    # 基于下划线的跨表查询
+    # 正向查询-查询一年级的执教老师
+    teacher_qs = Class.objects.filter(name="一年一班").values("teacher_id__name")
+    print(teacher_qs)
+    # 反向查询-查询张三老师的所教的班级
+    course_qs = Teacher.objects.filter(name="张三").values("class__name")
+    print(course_qs)
 
     return HttpResponse("select2")
 

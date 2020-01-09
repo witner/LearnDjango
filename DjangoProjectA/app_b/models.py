@@ -37,6 +37,7 @@ class Teacher(models.Model):
 class TeacherDetail(models.Model):
     id = models.AutoField(primary_key=True)
     telephone = models.CharField(verbose_name='手机号', max_length=11)
+    age = models.IntegerField(verbose_name='年龄', default=0)
     teacher_id = models.OneToOneField(to='Teacher', to_field='id', db_column='teacher_id', on_delete=models.CASCADE)
 
     class Meta:
